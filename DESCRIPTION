@@ -1,0 +1,16 @@
+Package: housethings
+Version: 0.0.0.9000
+Type: Package
+Title: Use PublicHousing Data In Your Analyses
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+Authors@R: as.person(c(
+    "Ryan Price <ryapric@gmail.com> [aut, cre]"
+  ))
+Depends: R (>= 3.1.0)
+Imports:
+    tidyverse,
+    tvm
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
