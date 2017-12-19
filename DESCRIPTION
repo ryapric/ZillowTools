@@ -1,17 +1,21 @@
-Package: housethings
-Version: 0.0.0.9000
+Package: ZillowTools
 Type: Package
-Title: Use PublicHousing Data In Your Analyses
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-Authors@R: as.person(c(
-    "Ryan Price <ryapric@gmail.com> [aut, cre]"
-  ))
-Depends: R (>= 3.1.0)
-Imports:
-    quantmod,
-    tidyverse (>= 1.0.0),
-    tvm
+Title: An R Package for Working With Public Housing Data from Zillow
+Version: 0.0.0.9999
+Authors@R:
+  c(person("Ryan", "Price", email = "rprice@aggio.io", role = c("aut", "cre", "ctb")))
+Description: This package is designed to dot dot dot.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Depends: R (>= 3.4.3)
+Imports:
+  quantmod,
+  tidyverse,
+  tvm,
+  validate
+Suggests:
+  testthat,
+  knitr,
+  rmarkdown
+RoxygenNote: 6.0.1
