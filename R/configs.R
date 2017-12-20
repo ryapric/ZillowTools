@@ -1,4 +1,8 @@
-static_web_addresses_vars <- list(
+# How the static web addresses begin...
+static_web_address_head <- "http://files.zillowstatic.com/research/public/"
+
+# ...and how they end, for each variable's static download link
+static_web_address_tail <- list(
   "home" = list("_Zhvi_Summary_AllHomes.csv",
                 "_Zhvi_AllHomes.csv",
                 "_Zhvi_BottomTier.csv",
@@ -41,9 +45,9 @@ static_web_addresses_vars <- list(
                   "_MedianRentalPricePerSqft_4Bedroom.csv",
                   "_MedianRentalPricePerSqft_5BedroomOrMore.csv"))
 
-# This will be the reference table by which users can review what the interactive
-# variable options are
-zillow_var_ids <- gsub("[[:punct:]]|csv", "", unlist(static_web_addresses_vars))
+# This will be the reference table by which users can review what the argument
+# options are
+zillow_var_ids <- gsub("[[:punct:]]|csv", "", unlist(static_web_address_tail))
 names(zillow_var_ids) <- gsub("home", "home_", names(zillow_var_ids))
 names(zillow_var_ids) <- gsub("rental", "rental_", names(zillow_var_ids))
 zillow_var_ids <- data.frame(variable_name = names(zillow_var_ids),
@@ -53,7 +57,8 @@ zillow_var_ids <- data.frame(variable_name = names(zillow_var_ids),
 
 
 
-zillow_data_reporting_levels <- list("State",
+# Geographic levels by which Zillow reports their research data
+zillow_data_reporting_level <- list("State",
                                      "Metro",
                                      "County",
                                      "City",
@@ -62,22 +67,21 @@ zillow_data_reporting_levels <- list("State",
 
 
 
-static_web_addresses_full <-
-  lapply(zillow_data_reporting_levels,
-         function(x) paste0("http://files.zillowstatic.com/research/public/",
+# Populate full web addresses, based on the above
+static_web_address_full <-
+  lapply(zillow_data_reporting_level,
+         function(x) paste0(static_web_address_head,
                             x,
                             "/",
                             x,
-                            unlist(static_web_addresses_vars)))
+                            unlist(static_web_address_tail)))
 
-names(static_web_addresses_full) <- unlist(zillow_data_reporting_levels)
+names(static_web_address_full) <- tolower(unlist(zillow_data_reporting_level))
+
+# static_web_addresses_full <- as.data.frame(static_web_addresses_full)
 
 
 
-id_suffixes <- lapply(tolower(zillow_data_reporting_levels), function(x) paste0("_", x))
-
-web_address_config <- paste0(names(static_web_addresses_vars),
-                             "_",
-                             1:length(zillow_data_reporting_levels),
-                             "_",
-                             tolower(zillow_data_reporting_levels))
+# Something to look up full web address via short-form variable name,
+# e.g. "home_1_state" would look up the first Home variable's state-level address
+web_address_config <- list()
