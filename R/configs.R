@@ -60,4 +60,3 @@ zillow_data_reporting_level <- list("State",
 # page <-
 #   html_session("https://www.zillow.com/research/data/") %>%
 #   html_table()
-
