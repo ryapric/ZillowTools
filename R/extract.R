@@ -30,15 +30,20 @@ zillow_get_url <- function(zillow_var, geo_level) {
                 collapse = ", "))
   }
   
-  zillow_var_correct_case <- tolower(zillow_var)
+  # Fix casing, including in the zillow_var_dict to make lookup work
+  zillow_var_dict_cased <- zillow_var_dict
+  names(zillow_var_dict_cased) <- tolower(names(zillow_var_dict_cased))
   
-  geo_level_correct_case <-
+  zillow_var_cased <- tolower(zillow_var)
+  
+  geo_level_cased <-
     paste0(toupper(substr(geo_level, 1, 1)),
            tolower(substr(geo_level, 2, nchar(geo_level))))
   
+  # Return
   paste0(static_url_head,
-         geo_level_correct_case, "/", geo_level_correct_case, "_",
-         zillow_var_dict[[zillow_var_correct_case]],
+         geo_level_cased, "/", geo_level_cased, "_",
+         zillow_var_dict_cased[[zillow_var_cased]],
          ".csv")
   
 }
