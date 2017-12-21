@@ -2,14 +2,17 @@ Package: ZillowTools
 Type: Package
 Title: An R Package for Working With Public Housing Data from Zillow
 Version: 0.0.0.9999
-Authors@R:
-  c(person("Ryan", "Price", email = "ryapric@gmail.com", role = c("aut", "cre", "ctb")))
+Authors@R: c(
+  person("Ryan", "Price", email = "ryapric@gmail.com", role = c("aut", "cre", "ctb"))
+  )
 Description: This package is designed to dot dot dot.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.4.3)
 Imports:
+  magrittr,
+  rvest,
   readr,
   dplyr,
   tidyr,
@@ -22,3 +25,6 @@ Suggests:
   knitr,
   rmarkdown
 RoxygenNote: 6.0.1
+Collate: 
+    'configs.R'
+    'extract.R'
