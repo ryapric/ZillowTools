@@ -5,7 +5,7 @@
 #' designed as a utility in actually fetching the data.
 #'
 #' @param zillow_var The variable name to read in. The full list of
-#' these short-form variable names can be found in ...
+#' these short-form variable names can be found by 
 #' 
 #' @param geo_level The geographic level of the data to retrieve, passed as a
 #' character string. Available options are: \code{state}, \code{metro},
@@ -68,6 +68,11 @@ zillow_get_url <- function(zillow_var, geo_level) {
 #'
 #' @examples
 zillow_read_from_web <- function(zillow_var, geo_level) {
+  
+  # Find URL
   zillow_url <- zillow_get_url(zillow_var, geo_level)
+  
+  # Read static file
   readr::read_csv(zillow_url)
+  
 }

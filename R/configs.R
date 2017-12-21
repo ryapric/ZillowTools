@@ -44,6 +44,7 @@ zillow_var_dict <- list(
   "medRent_3Bed_psf" = "MedianRentalPricePerSqft_3Bedroom",
   "medRent_4Bed_psf" = "MedianRentalPricePerSqft_4Bedroom",
   "medRent_5Bed_psf" = "MedianRentalPricePerSqft_5BedroomOrMore")
+# devtools::use_data(zillow_var_dict)
 
 # # Zillow's geographical reporting levels
 zillow_data_reporting_level <- list("State",
