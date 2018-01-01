@@ -1,17 +1,18 @@
 #' @import rlang
 #' @import dplyr
+NULL
 
 
 
 #' @title Determine static web URL address for Zillow data
 #' 
-#' @description This function is designed to fetch the full URL of Zillow's public research
-#' data via the site's static-address \code{.csv} links. It is specificaly
-#' designed as a utility in actually fetching the data.
+#' @description This function is designed to fetch the full URL of Zillow's
+#' public research data via the site's static-address \code{.csv} links. It is
+#' specificaly designed as a utility in actually fetching the data.
 #'
 #' @param zillow_var The variable name to read in. The full list of
-#' these short-form variable names can be found in the zillow_var_dict list
-#' included with this package (i.e. by calling ...)
+#' these short-form variable names can be found in the variable dictionary
+#' included with this package (i.e. by calling \code{zillow_var_dict})
 #' 
 #' @param geo_level The geographic level of the data to retrieve, passed as a
 #' character string. Available options are: \code{state}, \code{metro},
@@ -25,9 +26,9 @@
 zillow_get_url <- function(zillow_var, geo_level) {
   
   # Throw error if Zillow variable name isn't in list of options
-  if (!(tolower(zillow_var) %in% tolower(names(zillow_var_dict)))) {
-    stop(paste0("Invalid Zillow variable name. Please choose from the list ",
-                "included with this package, 'zillow_var_dict'"))
+  if (!(tolower(zillow_var) %in% tolower(names(zillow_var_dict_0)))) {
+    stop(paste0("Invalid Zillow variable name. Please choose from list ",
+                "(included with this package): zillow_var_dict"))
   }
   
   # Throw error if geographic level isn't in list of options
@@ -38,7 +39,7 @@ zillow_get_url <- function(zillow_var, geo_level) {
   }
   
   # Fix casing, including in the zillow_var_dict to make lookup work
-  zillow_var_dict_cased <- zillow_var_dict
+  zillow_var_dict_cased <- zillow_var_dict_0
   names(zillow_var_dict_cased) <- tolower(names(zillow_var_dict_cased))
   
   zillow_var_cased <- tolower(zillow_var)
@@ -63,8 +64,8 @@ zillow_get_url <- function(zillow_var, geo_level) {
 #' data via the site's static-address \code{.csv} links.
 #'
 #' @param zillow_var The variable name to read in. The full list of
-#' these short-form variable names can be found in the zillow_var_dict list
-#' included with this package (i.e. by calling ...)
+#' these short-form variable names can be found in the variable dictionary
+#' included with this package (i.e. by calling \code{zillow_var_dict})
 #' 
 #' @param geo_level The geographic level of the data to retrieve, passed as a
 #' character string. Available options are: \code{state}, \code{metro},
@@ -95,12 +96,12 @@ zillow_read <- function(zillow_var, geo_level) {
 #' data series, which is the monthly spot rates for 30-year mortgage loans in
 #' the United States.
 #' 
-#' @details This function is not designed to accept any arguments; you may wish to
-#' inspect the documentation of the \code{\link[quantmod]{getSymbols}} function
-#' from the \code{quantmod} package for more flexible financial & economic data
-#' retrieval.
+#' @details This function is not designed to accept any arguments; you may wish
+#' to inspect the documentation of the \code{\link[quantmod]{getSymbols}}
+#' function from the \code{quantmod} package for more flexible financial &
+#' economic data retrieval.
 #' 
-#' @return A table of class \code{data.frame} that contains monthly mortgage rate
+#' @return A table of class \code{tbl_df} that contains monthly mortgage rate
 #' data.
 #' 
 #' @export

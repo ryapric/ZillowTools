@@ -7,7 +7,7 @@
 get_mortgage_rates()
 }
 \value{
-A table of class \code{data.frame} that contains monthly mortgage rate
+A table of class \code{tbl_df} that contains monthly mortgage rate
 data.
 }
 \description{
@@ -18,8 +18,8 @@ data series, which is the monthly spot rates for 30-year mortgage loans in
 the United States.
 }
 \details{
-This function is not designed to accept any arguments; you may wish to
-inspect the documentation of the \code{\link[quantmod]{getSymbols}} function
-from the \code{quantmod} package for more flexible financial & economic data
-retrieval.
+This function is not designed to accept any arguments; you may wish
+to inspect the documentation of the \code{\link[quantmod]{getSymbols}}
+function from the \code{quantmod} package for more flexible financial &
+economic data retrieval.
 }

@@ -8,8 +8,8 @@ zillow_read(zillow_var, geo_level)
 }
 \arguments{
 \item{zillow_var}{The variable name to read in. The full list of
-these short-form variable names can be found in the zillow_var_dict list
-included with this package (i.e. by calling ...)}
+these short-form variable names can be found in the variable dictionary
+included with this package (i.e. by calling \code{zillow_var_dict})}
 
 \item{geo_level}{The geographic level of the data to retrieve, passed as a
 character string. Available options are: \code{state}, \code{metro},
