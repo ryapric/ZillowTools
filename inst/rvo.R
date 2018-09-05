@@ -1,27 +1,19 @@
+library(ZillowTools)
 library(tidyverse)
-library(stringr)
 library(lubridate)
 library(tvm)
 
-rm(list = ls());gc()
+# Housing calculation variables ----
+term <- 360 # In months
+down <- 0.05 # Percent down payment on home
+p_tax <- 0.02 # Property taxes as percentage per year
+h_ins <- 0.01 # Homeowners insurance, as a percentage of value per year (the default value of 1.0% is an estimate)
 
-
-
-# # Housing calculation variables ----
-term <- 360 # # In months
-down <- 0.05 # # Percent down payment on home
-p_tax <- 0.02 # # Property taxes as percentage per year
-h_ins <- 0.01 # # Homeowners insurance, as a percentage of value per year (the default value of 1.0% is an estimate)
-
-
-
-# # Rental property types (leave desired type uncommented, or use all) ----
+# Rental property types (leave desired type uncommented, or use all) ----
 rental_type <-
   c(
     'http://files.zillowstatic.com/research/public/City/City_ZriPerSqft_AllHomes.csv'
   )
-
-
 
 # # Read data in from Zillow (house sale price, $/sqft) ----
 house_0 <-

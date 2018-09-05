@@ -1,32 +1,20 @@
 Package: ZillowTools
 Type: Package
-Title: An R Package for Working With Public Housing Data from Zillow
-Version: 0.0.1.9999
+Title: An R Package for Working With Housing Data from Zillow
+Version: 0.1.0
 Authors@R: c(
-  person("Ryan", "Price", email = "ryapric@gmail.com", role = c("aut", "cre", "ctb"))
+    person("Ryan", "Price", email = "ryapric@gmail.com", role = c("aut", "cre", "ctb"))
   )
 Description: This package is designed to dot dot dot.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 3.4.3)
+Depends: R (>= 3.4.0)
 Imports:
-  tibble,
-  magrittr,
-  rlang,
-  stringr,
-  readr,
-  dplyr,
-  tidyr,
-  lubridate,
-  quantmod,
-  tvm
 Suggests:
-  validate,
-  testthat,
+  devtools,
   knitr,
-  rmarkdown
-RoxygenNote: 6.0.1
-Collate: 
-    'configs.R'
-    'extract.R'
+  rmarkdown,
+  testthat
+RoxygenNote: 6.1.0
+Roxygen: list(markdown = TRUE)
